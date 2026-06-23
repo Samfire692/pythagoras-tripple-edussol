@@ -68,7 +68,7 @@ export const Navbar = () => {
             </div>
 
             {navMenu && (
-              <div className='flex lg:hidden justify-around flex-col gap-2 w-full text-white shadow-sm shadow-slate-200 rounded-sm mt-2 p-2 absolute bg-blue-500 -ms-3 top-[10vh] md:top-[7vh]'>
+              <div className='flex lg:hidden justify-around flex-col gap-2 w-full text-white shadow-sm shadow-slate-200 rounded-sm mt-2 p-2 bg-blue-500'>
                 <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('home')}>Home</button>
                 <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('about')}>About</button>
                 <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('programme')}>Programme</button>
