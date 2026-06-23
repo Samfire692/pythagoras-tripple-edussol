@@ -12,7 +12,7 @@ export const About = () => {
 
               <div className='flex lg:flex-row md:flex-row flex-col justify-evenly px-3'>
                  <div className='md:w-lg my-auto'>
-                    <p className='flex flex-col'><span className='font-bold text-4xl text-blue-600' style={{fontFamily:"cursive"}}>At Pythagoras Tripple Edussol,</span>
+                    <p className='flex flex-col'><span className='font-bold text-4xl text-blue-600'>At Pythagoras Tripple Edussol,</span>
                     <span className='mt-2'>We are dedicated to helping students excel in WAEC, JAMB, NECO, and other examinations through focused guidance and quality teaching.</span>
                     </p>
 

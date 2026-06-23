@@ -16,7 +16,7 @@ export const Home = () => {
         </section><br /><br /><br />
 
         <section>
-            <div className='home flex lg:h-[84vh] h-[100vh] md:h-[88vh]'>
+            <div className='home flex h-[84vh]'>
                 <div className='text-white my-auto w-2xl lg:w-3xl md:w-full homes'>
                     <div className='w-sm lg:w-xl md:w-2xl mx-auto px-2 lg:text-start text-center'>
                         <span className='border px-2 py-1 rounded-xl flex mx-auto lg:mx-0 lg:justify-start w-fit gap-2'>
