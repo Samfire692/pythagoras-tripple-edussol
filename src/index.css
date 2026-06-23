@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+button{
+    cursor: pointer;
+}
+
+.home{
+    background:linear-gradient(80deg , rgba(74, 74, 244, 1), rgba(74, 74, 244, 0.75)  , rgba(255, 255, 255, 0.196)), url(assets/heropic2.jfif);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.homes{
+    animation:homeUp 1.3s ease-out;
+}
+
+@keyframes homeUp {
+    from{
+        transform:translateY(80px);
+        opacity:0;
+
+    }
+
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
