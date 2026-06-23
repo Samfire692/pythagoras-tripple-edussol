@@ -8,7 +8,7 @@ export const Testimonial = () => {
   ];
 
   return (
-    <section id='testimonials' className='scroll-mt-20 py-16 bg-white'>
+    <section id='testimonial' className='scroll-mt-20 py-16 bg-white'>
       <div className='max-w-6xl mx-auto px-6'>
         <h2 className='text-3xl md:text-4xl font-bold text-center text-blue-600 mb-12'>Student Testimonials</h2>
         
