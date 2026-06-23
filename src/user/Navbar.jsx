@@ -25,10 +25,10 @@ export const Navbar = () => {
                  </span>
 
                  <span className='flex flex-col text-white my-auto'>
-                    <span className='text-xl' style={{fontFamily:"sans-serif"}}>Pythagoras</span>
+                    <span className='text-xl font-bold' style={{fontFamily:"sans-serif"}}>Pythagoras</span>
                     <div className='-mt-1 flex gap-1' style={{fontFamily:"sans-serif"}}>
-                        <small>Tripple</small>
-                        <small>Edussol</small>
+                        <span>Triple</span>
+                        <span>Edusol</span>
                     </div>
                  </span>
                </div>
@@ -68,7 +68,7 @@ export const Navbar = () => {
             </div>
 
             {navMenu && (
-              <div className='flex lg:hidden justify-around flex-col gap-2 w-full text-white shadow-sm shadow-slate-200 rounded-sm mt-2 p-2 bg-blue-500'>
+              <div className='flex lg:hidden justify-around flex-col gap-2 w-full text-white mt-2 p-2 bg-blue-500'>
                 <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('home')}>Home</button>
                 <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('about')}>About</button>
                 <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('programme')}>Programme</button>

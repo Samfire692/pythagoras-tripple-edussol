@@ -18,7 +18,7 @@ export const About = () => {
 
                     <div className='p-4 rounded-3xl border-l-6 border-blue-600 shadow-sm shadow-slate-500 mt-3'>
                        <div className='font-bold gap-1 text-blue-600'>
-                         <h2 className='text-3xl' style={{fontFamily:"sans-serif"}}>10%</h2>
+                         <h2 className='text-3xl' style={{fontFamily:"sans-serif"}}>10+</h2>
                          <span className='my-auto'>Years of Academic Support</span>
                        </div>
                          <small>Experienced tutors providing personalized guidance and proven strategies for examination success.</small>

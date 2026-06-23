@@ -36,10 +36,10 @@ export const Contact = () => {
                   <div>
                     <div className='grid gap-3'>
                        <div className='flex gap-2'>
-                           <input type="text" className='border h-12 rounded-xl p-3 w-full border border-blue-500' placeholder='Surname name' onChange={(e)=> setSurname(e.target.value)}/>
-                           <input type="text" className='border h-12 rounded-xl p-3 w-full border border-blue-500' placeholder='First name' onChange={(e)=> setFirstname(e.target.value)}/>
+                           <input type="text" className='border h-12 rounded-xl p-3 w-full border-blue-500' placeholder='Surname name' onChange={(e)=> setSurname(e.target.value)}/>
+                           <input type="text" className='border h-12 rounded-xl p-3 w-full border-blue-500' placeholder='First name' onChange={(e)=> setFirstname(e.target.value)}/>
                        </div>
-                       <textarea name="" id="" className='border w-full h-40 rounded-xl p-3 border border-blue-500' placeholder='Write your message' onChange={(e)=> setMessage(e.target.value)}></textarea>
+                       <textarea name="" id="" className='border w-full h-40 rounded-xl p-3 border-blue-500' placeholder='Write your message' onChange={(e)=> setMessage(e.target.value)}></textarea>
                        <button className='w-full bg-blue-500 p-2.5 text-white rounded-xl' onClick={Submit}>Submit</button>
                     </div>
                   </div>
