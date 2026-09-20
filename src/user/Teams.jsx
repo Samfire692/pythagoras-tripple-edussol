@@ -15,7 +15,7 @@ export const Teams = () => {
         try {
             const { data, error } = await supabase
                 .from("PYTHA_team")
-                .select("*");
+                .select("*")
 
             if (error) throw error;
             setTeams(data);
