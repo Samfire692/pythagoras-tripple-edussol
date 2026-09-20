@@ -28,7 +28,7 @@ export const Contact = () => {
       const { data, error } = await supabase
         .from("PYTHA_contact")
         .select("*")
-        .limit(1)
+        .eq("id", CONTACT_ID)
         .maybeSingle();
 
       if (error) throw error;
