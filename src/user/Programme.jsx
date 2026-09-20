@@ -12,8 +12,14 @@ export const Programme = () => {
 
   return (
     <section id='programme' className='scroll-mt-20 py-16 bg-slate-50'>
-      <div className='max-w-6xl mx-auto px-6'>
-        <h2 className='text-3xl md:text-4xl font-bold text-center text-blue-600 mb-12'>Our Programme</h2>
+      <div className='max-w-7xl mx-auto px-6'>
+       <div className='mb-5'>
+           <h2 className="text-4xl font-bold leading-tight text-blue-700 md:text-5xl lg:text-5xl">
+            Programme
+          </h2>
+
+          <div className="mt-2 h-1 w-16 rounded-full bg-yellow-400"></div>
+       </div>
         
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {programmes.map((item, index) => (

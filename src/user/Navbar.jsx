@@ -1,83 +1,164 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 export const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-    const [navMenu , setNavmenu] = useState(false);
+  const links = [
+    {
+      name: "About",
+      id: "about",
+    },
+    {
+      name: "Programme",
+      id: "programme",
+    },
+    {
+      name: "Teams",
+      id: "team",
+    },
+    {
+      name: "Events",
+      id: "events",
+    },
+    {
+      name: "Testimonial",
+      id: "testimonial",
+    },
+    {
+      name: "Contact",
+      id: "contact",
+    },
+  ];
 
-    const scrollToSection = (id)=> {
-       const element = document.getElementById(id);
-       if(element){
-        element.scrollIntoView({behavior:"smooth"})
-       }
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+
+    if (element) {
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
-    
+
+    setOpen(false);
+  };
+
   return (
-    <>
-      <section id='navabar'>
-         <div className='navbar bg-blue-500 flex lg:flex-row flex-col justify-around px-3 py-2 fixed w-full z-100'>
-            <div className='flex gap-2 justify-between'>
-               <div className='flex gap-2 w-md'>
-                 <span className='text-white'>
-                   <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 24 24">
-	               <path d="M0 0h24v24H0z" fill="none" />
-	               <path fill="currentColor" d="M12 2L0 9l12 7l10-5.833V17.5h2V9zM3.999 13.49V18a9.99 9.99 0 0 0 8 4A9.99 9.99 0 0 0 20 18v-4.509l-8 4.667z" />
-                   </svg>
-                 </span>
+    <nav
+      className={`fixed left-0 top-0 z-[100] w-full transition-all duration-500 ${
+        scrolled
+          ? "bg-white/95 shadow-md backdrop-blur-md"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8 lg:px-12">
 
-                 <span className='flex flex-col text-white my-auto'>
-                    <span className='text-xl font-bold' style={{fontFamily:"sans-serif"}}>Pythagoras</span>
-                    <div className='-mt-1 flex gap-1' style={{fontFamily:"sans-serif"}}>
-                        <span>Triple</span>
-                        <span>Edusol</span>
-                    </div>
-                 </span>
-               </div>
+        {/* LOGO */}
+        <button
+          type="button"
+          onClick={() => scrollToSection("home")}
+          className="text-left"
+        >
+          <h1 className="flex flex-col uppercase leading-none">
+            <span
+              className={`text-2xl font-bold transition-colors duration-300 ${
+                scrolled ? "text-blue-600" : "text-yellow-300"
+              }`}
+            >
+              Pythagoras
+            </span>
 
-              <div className='my-auto flex lg:hidden'>
-                 <button className='text-white border-white border p-1 rounded-lg' onClick={()=> setNavmenu(!navMenu)}>
-                    {!navMenu 
-                    ?
-                      <span>
-                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24">
-	                     <path d="M0 0h24v24H0z" fill="none" />
-	                     <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5l14 0M5 19l14 0M5 12h14">
-		                <animate fill="freeze" attributeName="d" dur="0.4s" values="M5 5l14 14M5 19l14 -14M12 12h0;M5 5l14 0M5 19l14 0M5 12h14" />
-	                    </path>
-                        </svg>
-                      </span>
-                    :
-                     <span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" viewBox="0 0 24 24">
-	                    <path d="M0 0h24v24H0z" fill="none" />
-	                    <path fill="none" stroke="currentColor" stroke-dasharray="12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12l7 7M12 12l-7 -7M12 12l-7 7M12 12l7 -7">
-	                 	<animate fill="freeze" attributeName="stroke-dashoffset" dur="0.4s" values="12;0" />
-	                    </path>
-                        </svg>
-                     </span>
-                    }
-                 </button>
-              </div>
-            </div>
+            <span
+              className={`-mt-0.5 text-sm font-bold tracking-[3px] transition-colors duration-300 ${
+                scrolled ? "text-yellow-300" : "text-blue-600"
+              }`}
+            >
+              Triple Edusol
+            </span>
+          </h1>
+        </button>
 
-            <div className='text-white lg:flex w-md hidden justify-around place-items-center'>
-                <button className='hover:border-b h-fit transition-all' onClick={()=> scrollToSection('home')}>Home</button>
-                <button className='hover:border-b h-fit transition-all' onClick={()=> scrollToSection('about')}>About</button>
-                <button className='hover:border-b h-fit transition-all' onClick={()=> scrollToSection('programme')}>Programme</button>
-                <button className='hover:border-b h-fit transition-all' onClick={()=> scrollToSection('testimonial')}>Testimonial</button>
-                <button className='hover:border-b h-fit transition-all' onClick={()=> scrollToSection('contact')}>Contacts</button>
-            </div>
+        {/* DESKTOP NAV */}
+        <div className="hidden items-center gap-7 lg:flex">
+          {links.map((link) => (
+            <button
+              key={link.id}
+              type="button"
+              onClick={() => scrollToSection(link.id)}
+              className={`relative text-sm font-medium transition-colors duration-300 ${
+                scrolled
+                  ? "text-slate-700 hover:text-blue-600"
+                  : "text-white hover:text-yellow-300"
+              }`}
+            >
+              {link.name}
 
-            {navMenu && (
-              <div className='flex lg:hidden justify-around flex-col gap-2 w-full text-white mt-2 p-2 bg-blue-500'>
-                <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('home')}>Home</button>
-                <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('about')}>About</button>
-                <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('programme')}>Programme</button>
-                <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('testimonial')}>Testimonial</button>
-                <button className='hover:border-b h-fit transition-all w-full p-1.5' onClick={()=> scrollToSection('contact')}>Contacts</button>
-              </div>
-            )}
-         </div>
-      </section>
-    </>
-  )
-}
+              <span
+                className={`absolute -bottom-2 left-0 h-0.5 w-0 transition-all duration-300 hover:w-full ${
+                  scrolled ? "bg-blue-600" : "bg-yellow-300"
+                }`}
+              />
+            </button>
+          ))}
+        </div>
+
+        {/* MOBILE MENU BUTTON */}
+        <button
+          type="button"
+          onClick={() => setOpen((prev) => !prev)}
+          className={`rounded-lg border p-2 transition-all duration-300 lg:hidden ${
+            scrolled
+              ? "border-slate-200 text-slate-700 hover:bg-slate-100"
+              : "border-white/40 text-white hover:bg-white/10"
+          }`}
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </div>
+
+      {/* MOBILE MENU */}
+      <div
+        className={`overflow-hidden transition-all duration-300 lg:hidden ${
+          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        } ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-md"
+            : "bg-black/40 backdrop-blur-md"
+        }`}
+      >
+        <div className="space-y-1 px-5 pb-5 pt-2">
+          {links.map((link) => (
+            <button
+              key={link.id}
+              type="button"
+              onClick={() => scrollToSection(link.id)}
+              className={`block w-full rounded-xl px-4 py-3 text-left font-medium transition-all ${
+                scrolled
+                  ? "text-slate-700 hover:bg-blue-50 hover:text-blue-600"
+                  : "text-white hover:bg-white/10 hover:text-yellow-300"
+              }`}
+            >
+              {link.name}
+            </button>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+};

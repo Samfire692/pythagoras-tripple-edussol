@@ -1,11 +1,22 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Chewy&family=Dancing+Script:wght@400..700&family=Knewave&family=Lilita+One&family=Luckiest+Guy&family=Orbitron:wght@400..900&family=Syne+Mono&family=Titan+One&display=swap');
+
+:root{
+    --loginBackground:url("assets/pexels-miami302-16257100.jpg");
+    --fonttitle:"Lilita One", sans-serif;
+}
+
+h1{
+    font-family:var(--fonttitle);
+    font-weight:bold;
+}
 
 button{
     cursor: pointer;
 }
 
 .home{
-    background:linear-gradient(80deg , rgba(74, 74, 244, 1), rgba(74, 74, 244, 0.75)  , rgba(255, 255, 255, 0.196)), url(assets/heropic2.jfif);
+    background:linear-gradient(80deg , black), url(assets/heropic2.jfif);
     background-position:center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -26,4 +37,27 @@ button{
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.back{
+    background-image:var(--loginBackground);
+}
+
+.profile-cover {
+  position: relative;
+  height: 225px;
+  background: #5b7bea;
+  overflow: hidden;
+}
+
+.profile-cover::after {
+  content: "";
+  position: absolute;
+  left: -5%;
+  bottom: -20px;
+  width: 110%;
+  height: 45px;
+  background: white;
+  border-radius: 50% 50% 0 0 / 100% 10% 0 0;
+  transform: rotate(-2deg);
 }
